@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from .views import (
     EntryListView,
     EntryDetailView,
@@ -11,6 +11,8 @@ from .views import (
 )
 
 urlpatterns = [
+    path('accounts/', include('accounts.urls')),
+    
     path('', EntryListView.as_view(), name='index'),
     path('<int:pk>/', EntryDetailView.as_view(), name='detail'),
     path('entry/new/', EntryCreateView.as_view(), name='entry_create'),

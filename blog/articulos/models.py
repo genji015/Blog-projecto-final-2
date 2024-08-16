@@ -1,19 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django import forms
-from .models import Entry
 
 #entradas del blog 
 
 
-class EntryForm(forms.ModelForm):
-    class Meta:
-        model = Entry
-        fields = ['title', 'content']
-        widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
-        }
+class Entry(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
     
  #comentarios
  
