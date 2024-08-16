@@ -1,0 +1,12 @@
+{% extends 'articulos/base.html' %}
+{%load static%}
+{% block main %}
+<div class="container">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </form>
+</div>
+{% endblock main %}
